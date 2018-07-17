@@ -1,7 +1,7 @@
 # Planet fitness and baskin robbins search
 
 ## Introduction
-In terre haute there are two baskin robbins. Across the street from one baskin robbins is a planet fitness. Across the street from the other baskin robbins is anytime fitness. This is a writeup investigating the signifigance of this correlation.
+In terre haute there are only two Baskin Robbins. Across the street from one baskin robbins is a planet fitness. Across the street from the other Baskin Robbins is Anytime Fitness. It seems unlikely that this is a coincidence that the only two Baskin Robbins happen to be across the street from gyms. This is a writeup investigating whether this trend continues when considering a large geographical area.
 
 ![baskin robbins in terre haute][thaute_br]
 ![planet fitness in terre haute][thaute_pf]
@@ -10,7 +10,8 @@ In terre haute there are two baskin robbins. Across the street from one baskin r
 [thaute_pf]: ./thaute_pf.png
 
 ## Methods
-I need to aquire the longitutude and latitude for all the stores for both pf and br. It is unlikely such information is available on their website, although there might be a list of store addresses. Google maps geolocator api can be used to turn addresses into long,lat pairs.
+
+I need to aquire the longitutude and latitude for all the stores for both Planet Fitness and Baskin Robbins. It is unlikely such information is available on their website, although there might be a list of store addresses. If I can find a list of addresses for all the stores then the google maps geolocator api can be used to turn addresses into longitude, latitude pairs. Alternatively I may be able to scrape the data off their map tracker pages.
 
 ### Finding planet fitness location data
 
