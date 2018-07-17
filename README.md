@@ -109,11 +109,11 @@ Using top -> search all files in dev tools all the first loaded by the browser f
 ![search for drupal settings](./imgs/drupalsettingssearch.png)
 
 
-I wasn't able to find anything for drupalSettings in the Files, so maybe it just happens to be loaded in memory? 
+I wasn't able to find anything for drupalSettings in the Files, so maybe it just happens to be loaded in memory? Typing the name of the variable into the chrome dev tools and pressing enter will show if this variable is defined.
 
 ![found drupal setting](./imgs/drupal_settings_console_unexpanded.png)
 
-Using the arrow the object can be expanded and it's state inspected. Note that we were trying to find the value of 
+Sure enough it is defined! Using the arrow the object can be expanded and it's state inspected. Note that we were trying to find the value of 
 ```js
 drupalSettings.mapboxBlock.custom.jsonFilePath
 ```
