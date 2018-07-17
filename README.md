@@ -191,7 +191,7 @@ with open("evidence-files/pf-locations.json","r") as read_file:
         idx = idx + 8 # skip to next group of 8 keys
     print(pd.DataFrame(d)[['title','lat','lng']])
 ```
-You can see the output of the script below. I was able to successfully retrieve the locations of 1623 planet fitness!
+You can see the output of the script below. I was able to successfully retrieve the locations of 1652 planet fitness!
 
 ![script output](./imgs/script_output.png)
 
