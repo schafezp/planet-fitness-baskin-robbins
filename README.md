@@ -1,7 +1,7 @@
 # Planet fitness and baskin robbins search
 
 ## Introduction
-In terre haute there are only two Baskin Robbins. Across the street from one baskin robbins is a planet fitness. Across the street from the other Baskin Robbins is Anytime Fitness. It seems unlikely that this is a coincidence that the only two Baskin Robbins happen to be across the street from gyms. This is a writeup investigating whether this trend continues when considering a large geographical area.
+In Terre Haute, Indiana there are only two Baskin Robbins. Across the street from one baskin robbins is a planet fitness. Across the street from the other Baskin Robbins is Anytime Fitness. It seems unlikely that this is a coincidence that the only two Baskin Robbins happen to be across the street from gyms. This is a writeup investigating whether this trend continues when considering a large geographical area.
 
 ![baskin robbins in terre haute][thaute_br]
 ![planet fitness in terre haute][thaute_pf]
