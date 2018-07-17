@@ -138,7 +138,7 @@ Below I use jsonprettify.com to make the json more readable.
 
 ![found locations.png!](./imgs/prettify-pf-locations.png)
 
-The entire object represented by locations.json is a flat array. I've truncated the output and put it in the markdown below for reference. The first object in the array is 8 and I'm not sure what that means. The next 9 objects in the array are clearly header fields such as "title". We see "lat" and "lng" as fields 3 and 4 which is perfect because that's what we were looking for. After that there are repeating groups of 8 entries in the array which correspond to the header fields. This should be able to be parsed in a simple loop.
+The entire object represented by locations.json is a flat array. I've truncated the output and put it in the markdown below for reference. The first object in the array is 8 and I'm not sure what that means. The next 8 objects in the array are clearly header fields such as "title". We see "lat" and "lng" as fields 3 and 4 which is perfect because that's what we were looking for. After that there are repeating groups of 8 entries in the array which correspond to the header fields. This should be able to be parsed in a simple loop.
 
 ```json
 [
