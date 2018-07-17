@@ -71,7 +71,9 @@ In this file they are setting the "onLoad" prototype for "Map" which will determ
 Using ctrl + F to search for this variable initilization I find where it's defined.
 
 ![found definition](./allLocationsURI.png)
+
 I've included the line 2092 below for clarity.
+
 ```js
 this.allLocationsJsonURI = this.settings.jsonFilePath + '?' + Math.round(new Date().getTime() / 1000);
 ```
