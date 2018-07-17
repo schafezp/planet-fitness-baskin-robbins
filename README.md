@@ -197,7 +197,43 @@ You can see the output of the script below. I was able to successfully retrieve 
 
 
 ### Finding Baskin Robbins location data
-TODO
+
+The baskin robbins website is www.baskinrobbins.com. On the main page there is a link to "find a shop". Entering an address brings you to this page
+
+![Baskin Robbins locator](./imgs/br_locator.png)
+
+Using the chrome dev Network tool, we see that pressing the search button causes an api request to mapquestapi.com
+
+![Baskin Robbins api call](./imgs/br_apicall.png)
+
+The request is
+
+```
+https://www.mapquestapi.com/search/v2/radius?callback=jQuery111200900186798624163_1531798949717&key=Gmjtd%7Clu6t2luan5%252C72%253Do5-larsq&origin=Terre+Haute%2C+IN&units=m&maxMatches=50&ambiguities=ignore&radius=10&hostedData=mqap.33454_BaskinRobbins&_=1531798949723
+```
+There are several parameters in this api call. 
+Callback, key, origin, units, maxMatches, ambiguities,radius, and hostedData.
+
+I hypothesize if we change maxMatches and radius to very large values we should be able to locate all the Baskin Robbins.
+
+Therefore if we put the following into your browser it should give us many baskin robbins locations
+```
+https://www.mapquestapi.com/search/v2/radius?callback=jQuery111200900186798624163_1531798949717&key=Gmjtd%7Clu6t2luan5%252C72%253Do5-larsq&origin=Terre+Haute%2C+IN&units=m&maxMatches=5000&ambiguities=ignore&radius=5000&hostedData=mqap.33454_BaskinRobbins&_=1531798949723
+```
+
+I get errors that the limit for maxMatches is 4000, and the max for radius is 3000 so I chaned the values to those maxs and the query succeedes!
+
+
+Looking at the json file at the top we see "resultsCount":2587
+
+![script output](./imgs/br-prettified-location.png)
+
+For each of the 2587 stores found there is a latLng pair structured like
+```json
+"latLng":{"lng":-87.414045,"lat":39.466479}}
+```
+Therefore we can create a python script to parse the latitutde and longitude out of the br-locations.json file.
+
 
 ### Analyzing Baskin Robbins location data
 TODO
