@@ -5,7 +5,7 @@ import pandas as pd
 @app.route('/')
 @app.route('/index')
 def index():
-    df = pd.read_csv('../evidence-files/pf-locations-cleaned.csv')
+    df = pd.read_csv('../evidence-files/pf-locations-cleaned.csv',sep='\t')
     
-    data  = {'df': df}
-    return render_template('index.html', title='Home', data=data)
+    pfdata  = {'df': df[['lat','lng']].to_json(orient='index').rstrip()}
+    return render_template('index.html', title='Home', pfdata=pfdata)

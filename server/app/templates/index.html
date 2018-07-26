@@ -17,7 +17,8 @@
     <body>
         <h1>Map of Planet fitness and Baskin Robbins</h1>
         <div id="mapid"></div>
-        <h2>{{ data.df }}</h1>
+        <div id="test"></div>
+        <!-- <h2>{{ pfdata.df }}</h1> -->
     </body>
     
     <script>
@@ -29,5 +30,12 @@
              accessToken: 'pk.eyJ1IjoiZmFjYWRlIiwiYSI6ImNqazM2OTJrcTAxY2UzcXFkN28wNnhhYWsifQ.0UPgWdtQY1-XyTmKKljlrw'
          }).addTo(mymap);
          var marker = L.marker([40.85598, -100.403579]).addTo(mymap);
-            </script>
+    </script>
+    <script>
+        {% autoescape false %}
+        var latLng = '{{ pfdata.df }}'
+        {% endautoescape %}
+        var j = JSON.parse(latLng)
+        document.getElementById("test").innerHTML = latLng;
+    </script>
 </html>
