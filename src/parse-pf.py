@@ -1,7 +1,10 @@
 import json
 import pandas as pd
 
-with open("evidence-files/pf-locations.json","r") as read_file:
+uncleaned_json_file = "evidence-files/pf-locations.json"
+cleaned_csv_file = "evidence-files/pf-locations-cleaned.csv"
+
+with open(uncleaned_json_file,"r") as read_file:
     data = json.load(read_file)
     obj_limit = int((len(data)-9)/8)
     idx = 9 #keys start at idx
@@ -14,5 +17,7 @@ with open("evidence-files/pf-locations.json","r") as read_file:
         d.append(row)
         idx = idx + 8 # skip to next group of 8 keys
     
-    print(pd.DataFrame(d)[['title','lat','lng']])
+    df = pd.DataFrame(d)
+    print(df[['title','lat','lng']])
+    df[['title','lat','lng']].to_csv(cleaned_csv_file, sep='\t')
 
