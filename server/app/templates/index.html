@@ -29,13 +29,38 @@
              id: 'mapbox.streets',
              accessToken: 'pk.eyJ1IjoiZmFjYWRlIiwiYSI6ImNqazM2OTJrcTAxY2UzcXFkN28wNnhhYWsifQ.0UPgWdtQY1-XyTmKKljlrw'
          }).addTo(mymap);
-         var marker = L.marker([40.85598, -100.403579]).addTo(mymap);
+
+         {% autoescape false %}
+        var pflatLng = '{{ pfdata.df }}'
+        var brlatLng = '{{ brdata.df }}'
+        {% endautoescape %}
+        /* data used because of orient->split */
+        var pfdata = JSON.parse(pflatLng)["data"]
+        var brdata = JSON.parse(brlatLng)["data"]
+        
+        var i;
+        var pfIcon = new L.Icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+            });
+        var brIcon = new L.Icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+            });
+        var limit = 100
+        var idx = 0
+        for(i = 0; i < pfdata.length; i++){
+            var latLng = pfdata[i]
+            var marker = L.marker([latLng[0],latLng[1]], {icon: pfIcon}).addTo(mymap);
+        }
+        for(i = 0; i < brdata.length; i++){
+            var latLng = brdata[i]
+            var marker = L.marker([latLng[0],latLng[1]], {icon: brIcon}).addTo(mymap);
+        }
     </script>
     <script>
-        {% autoescape false %}
-        var latLng = '{{ pfdata.df }}'
-        {% endautoescape %}
-        var j = JSON.parse(latLng)
-        document.getElementById("test").innerHTML = latLng;
+        
     </script>
 </html>
